@@ -62,7 +62,7 @@ lista* remove_soldado(lista* p, node* no){
     
     printf("\nSai: %s", aux->nome);
     p->size--;
-    free(aux);
+
     return p;
 }
 
@@ -74,7 +74,7 @@ void imprime(lista *p){
         node* aux = p->init;
         do{
             printf("%s ", aux->nome);
-            aux = aux->next;
+            aux = aux->next;          
         }while(aux != p->init);
     }
 }
@@ -102,6 +102,7 @@ node* sorteio(lista* p){
             aux = aux->next;
         }
         remove_soldado(p, aux);
+        aux = aux->next;
     }
     printf("\nFoge: %s", p->init->nome);
     free(aux);
@@ -115,5 +116,4 @@ int main(){
     recebe_nomes(p);
     sorteio(p);
     
-
 }
